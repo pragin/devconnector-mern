@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://pragin123:pragin123@devconnector-djums.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://pragin123:pragin123@devconnector-djums.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mySecret"
 }
