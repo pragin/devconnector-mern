@@ -246,17 +246,32 @@ router.put(
  *  @access Private
  */
 
+// router.delete('/experience/:exp_id', auth, async (req, res) => {
+//   try {
+//     let profile = await Profile.findOne({ user: req.user.id });
+
+//     let removeIndex = profile.experience
+//       .map(item => item)
+//       .indexOf(req.params.exp_id);
+
+//     profile.experience.splice(removeIndex);
+
+//     profile.save();
+//     res.json(profile);
+//   } catch (err) {
+//     console.log(err.message);
+//     res.send(500).send('Server error');
+//   }
+// });
+
 router.delete('/experience/:exp_id', auth, async (req, res) => {
   try {
-    let profile = await Profile.findOne({ user: req.user.id });
+    let profile = await Profile.findOneAndUpdate(
+      { user: req.user.id },
+      { $pull: { experience: { _id: req.params.exp_id } } },
+      { new: true }
+    );
 
-    let removeIndex = profile.experience
-      .map(item => item)
-      .indexOf(req.params.exp_id);
-
-    profile.experience.splice(removeIndex);
-
-    profile.save();
     res.json(profile);
   } catch (err) {
     console.log(err.message);
