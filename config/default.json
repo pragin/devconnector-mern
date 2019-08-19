@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://pragin123:pragin123@devconnector-djums.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "mySecret"
+  "jwtSecret": "mySecret",
+  "githubClientID": "9bf6bb30d7e5c573804f",
+  "githubSecret": "458ed25931ad57ed7bb792f685d679b8d69f52ed"
 }
